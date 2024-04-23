@@ -7,10 +7,14 @@ export const Blog = () => {
             <div className="container mx-auto px-4 pb-12">
                 <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
                     <div className="lg:col-span-3">
-                        <h2 className="block text-4xl font-bold text-gray-800">Explora nuestro trabajo </h2>
+
+                        <h2 className="block text-4xl font-bold text-gray-800">
+                            <span className="text-green-500">Explora</span> nuestro trabajo
+                        </h2>
                         <p className="mt-3 text-lg text-gray-800">Te ayudamos a idear, diseñar estrategias, iterar y lanzar sus aplicaciones web y móviles.</p>
 
                         <div className="my-4">
+
                             <Button size="lg" className="bg-thirdColor text-secondaryColor font-semibold">Explorar</Button>
                         </div>
                     </div>

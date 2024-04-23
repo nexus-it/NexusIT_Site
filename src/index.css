@@ -2,16 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-.animation-hover:after {
-    background: none repeat scroll 0 0 transparent;
+
+
+
+  .animation-hover:after {
     content: "";
+    display: block;
     height: 2px;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    @apply w-0 bg-primaryColor left-1/2 block bottom-0 absolute;
-  }
-  .animation-active:after {
-    @apply left-0 w-full;
-  }
-  .animation-hover:hover:after {
-    @apply left-0 w-full;
-  }
+    width: 0;
+    background: transparent;
+    transition: width 0.3s ease, left 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.animation-active:after {
+    width: 100%;
+}
+
+.animation-hover:hover:after {
+    width: 100%;
+}

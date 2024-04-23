@@ -6,6 +6,7 @@ import {
     Contactanos,
     Blog
 } from "../components";
+import Whatsapp from "../components/Whatsapp";
 
 export const NexusPage = () => {
     return (
@@ -16,6 +17,8 @@ export const NexusPage = () => {
             <Clientes />
             <Blog />
             <Contactanos />
+            <Whatsapp/>
+
         </>
     )
 }
