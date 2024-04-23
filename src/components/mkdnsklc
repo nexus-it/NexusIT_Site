@@ -1,0 +1,60 @@
+import React, { useState, useEffect } from 'react';
+
+
+import additionalImage1 from '../assets/images/gato.jpeg';
+import additionalImage2 from '../assets/images/background.jpg';
+
+
+export const Equipo = () => {
+
+  const imagenes = [additionalImage1, additionalImage2];
+  const [imagenIndex, setImagenIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setImagenIndex((prevIndex) => (prevIndex + 1) % imagenes.length);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [imagenes.length]);
+
+  return (
+    
+    <section id="equipo-section" className="bg-secondaryColor">
+
+<div className="container mx-auto px-4 py-12">
+        <div className="mx-auto text-center mb-10 lg:mb-14">
+          <h2 className="text-2xl font-bold text-gray-800">Conoce a nuestro increíble equipo</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          {/* ... (tu código actual) */}
+          {/* 1 Item */}
+          <div className="text-center">
+            <div className="relative group">
+              <img aria-label="imagen perfil" className="rounded-2xl" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80" alt="imagen perfil" />
+              <div className="hidden group-hover:flex absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity items-center justify-center">
+                <img
+                  className="w-full h-full object-cover"
+                  src={imagenes[imagenIndex]}
+                  alt={`imagen adicional ${imagenIndex + 1}`}
+                />
+              </div>
+
+              
+            </div>
+            <div className="mt-2 sm:mt-4">
+              <h3 className="font-semibold text-gray-800">
+                Juan Palacio
+              </h3>
+              <p className="text-sm text-gray-600">
+                Gerente General
+              </p>
+            </div>
+          </div>
+          {/* ... (repite el mismo patrón para otros elementos) */}
+        </div>
+      </div>
+    </section>
+  )
+}
+1

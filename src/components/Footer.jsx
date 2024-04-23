@@ -93,7 +93,7 @@ export const Footer = () => {
                 smooth={true}
                 duration={1000}
                 className={"hover:text-green-500 text-white cursor-pointer font-semibold"} >
-                Success stories
+                Historias de éxito
               </LinkScroll>
             </div>
 
@@ -135,7 +135,7 @@ export const Footer = () => {
                 aria-label="Our email"
                 title="Our email"
                 className="text-white hover:text-primaryColor" >
-                correo@correo.com
+                info@nexus-it.co
               </a>
             </div>
 
@@ -163,17 +163,17 @@ export const Footer = () => {
             <div className="flex items-center mt-1 space-x-3 pt-2">
 
               {/* Whatsapp */}
-              <a aria-label="red social whatsapp" href="https://wa.me/3017522772" className="text-gray-500 hover:text-deep-purple-accent-400 transition duration-300 ease-in-out hover:scale-110" >
+              <a aria-label="red social whatsapp" href="https://wa.me/3017522772" target="_blank" className="text-gray-500 hover:text-deep-purple-accent-400 transition duration-300 ease-in-out hover:scale-110" >
                 <img src={Whatsapp} width={'35'} alt="icono whatsapp" />
               </a>
 
               {/* Instagram */}
-              <a aria-label="red social Instagram" href="https://www.instagram.com/nexus_it.co/" className="text-gray-500 hover:text-deep-purple-accent-400 transition duration-300 ease-in-out hover:scale-110" >
+              <a aria-label="red social Instagram" href="https://www.instagram.com/nexus_it.co/" target="_blank" className="text-gray-500 hover:text-deep-purple-accent-400 transition duration-300 ease-in-out hover:scale-110" >
                 <img src={Instagram} width={'35'} alt="icono instagram" />
               </a>
 
               {/* Linkedin */}
-              <a aria-label="red social Linkedin" href="/" className="text-gray-500 hover:text-deep-purple-accent-400 transition duration-300 ease-in-out hover:scale-110" >
+              <a aria-label="red social Linkedin" href="https://www.linkedin.com/company/nexus-it-co/mycompany/" target="_blank" className="text-gray-500 hover:text-deep-purple-accent-400 transition duration-300 ease-in-out hover:scale-110" >
                 <img src={Linkedin} width={'35'} alt="icono linkedin" />
               </a>
             </div>

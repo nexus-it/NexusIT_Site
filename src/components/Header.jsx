@@ -10,14 +10,14 @@ const menuItems = [
   },
   {
     pathname: 'Servicios',
-    path: 'servicios-section'
+    path: 'servicioss-section'
   },
   {
     pathname: 'Equipo',
     path: 'equipo-section'
   },
   {
-    pathname: 'Success stories',
+    pathname: 'Historias de exito',
     path: 'clientes-section'
   },
   {
@@ -40,12 +40,14 @@ export const Header = () => {
 
   return (
     <>
-      <Navegation aria-label="menu" isBlurred={true} isBordered className={"bg-thirdColor text-secondaryColor"}  >
-        <NavbarContent className="sm:hidden" justify="start"> 
+      {/**<Whatsapp /> */}
+
+      <Navegation aria-label="menu" isBlurred={true} isBordered className={"bg-thirdColor text-secondaryColor "}  >
+        <NavbarContent className="sm:hidden p-0" justify="start">
           <NavbarMenuToggle aria-label="menu" />
         </NavbarContent>
 
-        <NavbarContent className="sm:hidden" justify="center">
+        <NavbarContent className="sm:hidden justify-start ">
           <NavbarBrand>
             <LinkScroll
               activeClass="active"
@@ -63,12 +65,12 @@ export const Header = () => {
                   : "")
               }
             >
-              <img className='rounded-none' width={150} src={LogoNexus} alt='logo nexus' />
+              <img className='rounded-none medium-size-logo ' width={150} src={LogoNexus} alt='logo nexus' />
             </LinkScroll>
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden sm:flex md-30 lg:ml-[-2rem] " justify="star">
           <NavbarBrand>
             <LinkScroll
               activeClass="active"
@@ -86,7 +88,7 @@ export const Header = () => {
                   : "")
               }
             >
-              <img className='rounded-none' width={150} src={LogoNexus} alt='logo nexus' />
+              <img className='rounded-none lg:ml-[-7rem]' width={280} src={LogoNexus} alt='logo nexus' />
             </LinkScroll>
           </NavbarBrand>
 
@@ -101,10 +103,10 @@ export const Header = () => {
                 setActiveLink("inicio-section");
               }}
               className={
-                "py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                "py-2 mx-1 cursor-pointer animation-hover inline-block relative" +
                 (activeLink === "inicio-section"
                   ? " font-semibold animation-active "
-                  : " text-black-500 a")
+                  : " text-black-500 a ")
               }
             >
               ¿Quiénes somos?
@@ -113,16 +115,16 @@ export const Header = () => {
           <NavbarItem >
             <LinkScroll
               activeClass="active"
-              to="servicios-section"
+              to="servicioss-section"
               spy={true}
               smooth={true}
               duration={1000}
               onSetActive={() => {
-                setActiveLink("servicios-section");
+                setActiveLink("servicioss-section");
               }}
               className={
-                "py-2 mx-2 cursor-pointer animation-hover relative" +
-                (activeLink === "servicios-section"
+                "py-2 mx-6 cursor-pointer animation-hover relative" +
+                (activeLink === "servicioss-section"
                   ? " font-semibold animation-active "
                   : " text-black-500 a")
               }
@@ -167,7 +169,7 @@ export const Header = () => {
                   : " text-black-500 a")
               }
             >
-              Success stories
+              Historias de exito
             </LinkScroll>
           </NavbarItem>
           <NavbarItem className="hidden md:flex">
@@ -191,7 +193,7 @@ export const Header = () => {
             </LinkScroll>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent justify="end">
+        <NavbarContent className="lg:mr-[-7rem]" justify="end">
           <NavbarItem>
             <Button as={LinkScroll} to="contactanos-section" spy={true}
               smooth={true}
@@ -205,10 +207,10 @@ export const Header = () => {
               Contáctanos
             </Button>
           </NavbarItem>
-        </NavbarContent>
-        <NavbarMenu>
+        </NavbarContent >
+        <NavbarMenu >
           {menuItems.map(({ pathname, path }, index) => (
-            <NavbarMenuItem key={`${pathname}-${index}`}>
+            <NavbarMenuItem  key={`${pathname}-${index}`}>
               <LinkScroll
                 activeClass="active"
                 to={path}
@@ -219,10 +221,10 @@ export const Header = () => {
                   setActiveLink({ path });
                 }}
                 className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-lg  " +
                   (activeLink === path
                     ? " text-green-500 font-semibold animation-active "
-                    : " text-black-500 a")
+                    : " text-black-500 a ")
                 }
               >
                 {pathname}
@@ -231,6 +233,10 @@ export const Header = () => {
           ))}
         </NavbarMenu>
       </Navegation>
+
+
     </>
+
+
   );
 }
