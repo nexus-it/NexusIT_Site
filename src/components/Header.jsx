@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Navbar as Navegation, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, Button } from "@nextui-org/react";
+import { Navbar as Navegation, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, Button, Select, SelectItem } from "@nextui-org/react";
 import { Link as LinkScroll } from "react-scroll";
 import LogoNexus from "../assets/images/logo-header.svg";
+import { useTranslation } from "react-i18next";
 
 const menuItems = [
   {
@@ -31,6 +32,13 @@ export const Header = () => {
   const [activeLink, setActiveLink] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollActive, setScrollActive] = useState(false);
+  const [text, i18n] = useTranslation("global");
+
+  const idiomas = [
+    { value: "es", label: "Español" },
+    { value: "en", label: "Ingles" },
+  ];
+
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -41,7 +49,7 @@ export const Header = () => {
   return (
     <>
       <Navegation aria-label="menu" isBlurred={true} isBordered className={"bg-thirdColor text-secondaryColor"}  >
-        <NavbarContent className="sm:hidden" justify="start"> 
+        <NavbarContent className="sm:hidden" justify="start">
           <NavbarMenuToggle aria-label="menu" />
         </NavbarContent>
 
@@ -107,7 +115,7 @@ export const Header = () => {
                   : " text-black-500 a")
               }
             >
-              ¿Quiénes somos?
+              {text("header.who-are-we")}
             </LinkScroll>
           </NavbarItem>
           <NavbarItem >
@@ -127,7 +135,7 @@ export const Header = () => {
                   : " text-black-500 a")
               }
             >
-              Servicios
+              {text("header.services")}
             </LinkScroll>
           </NavbarItem>
           <NavbarItem>
@@ -147,7 +155,7 @@ export const Header = () => {
                   : " text-black-500 a")
               }
             >
-              Equipo
+              {text("header.team")}
             </LinkScroll>
           </NavbarItem>
           <NavbarItem>
@@ -202,9 +210,25 @@ export const Header = () => {
               }} className={"bg-primaryColor text-white font-semibold hidden md:flex" + (activeLink === "contactanos-section"
                 ? " font-semibold animation-active "
                 : "  a")} variant="flat">
-              Contáctanos
+              {text("header.contact-us")}
             </Button>
           </NavbarItem>
+
+          <NavbarItem className="md:flex w-28 flex-wrap md:flex-nowrap gap-2">
+
+            <Select
+              label="Lenguage"
+              className="max-w-"
+            >
+              {idiomas.map((idioma) => (
+                <SelectItem key={idioma.value} value={idioma.value} onClick={() => i18n.changeLanguage(idioma.value)} >
+                  {idioma.label}
+                </SelectItem>
+              ))}
+            </Select>
+
+          </NavbarItem>
+
         </NavbarContent>
         <NavbarMenu>
           {menuItems.map(({ pathname, path }, index) => (
