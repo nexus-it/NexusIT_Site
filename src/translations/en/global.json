@@ -1,0 +1,12 @@
+{
+    "header":{
+        "who-are-we": "¿Who are we?",
+        "services": "Services",
+        "team": "Team",
+        "contact-us": "Contact us"
+    },
+    "idiomas": {
+        "spanish": "Espanish",
+        "english": "Englis"
+    }
+}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Navbar as Navegation, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, Button } from "@nextui-org/react";
+import { Navbar as Navegation, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, Button, Select, SelectItem } from "@nextui-org/react";
 import { Link as LinkScroll } from "react-scroll";
 import LogoNexus from "../assets/images/logo-header.svg";
+import { useTranslation } from "react-i18next";
 
 const menuItems = [
   {
@@ -10,14 +11,14 @@ const menuItems = [
   },
   {
     pathname: 'Servicios',
-    path: 'servicioss-section'
+    path: 'servicios-section'
   },
   {
     pathname: 'Equipo',
     path: 'equipo-section'
   },
   {
-    pathname: 'Historias de exito',
+    pathname: 'Success stories',
     path: 'clientes-section'
   },
   {
@@ -31,6 +32,13 @@ export const Header = () => {
   const [activeLink, setActiveLink] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollActive, setScrollActive] = useState(false);
+  const [text, i18n] = useTranslation("global");
+
+  const idiomas = [
+    { value: "es", label: "Español" },
+    { value: "en", label: "Ingles" },
+  ];
+
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -40,14 +48,12 @@ export const Header = () => {
 
   return (
     <>
-      {/**<Whatsapp /> */}
-
-      <Navegation aria-label="menu" isBlurred={true} isBordered className={"bg-thirdColor text-secondaryColor "}  >
-        <NavbarContent className="sm:hidden p-0" justify="start">
+      <Navegation aria-label="menu" isBlurred={true} isBordered className={"bg-thirdColor text-secondaryColor"}  >
+        <NavbarContent className="sm:hidden" justify="start">
           <NavbarMenuToggle aria-label="menu" />
         </NavbarContent>
 
-        <NavbarContent className="sm:hidden justify-start ">
+        <NavbarContent className="sm:hidden" justify="center">
           <NavbarBrand>
             <LinkScroll
               activeClass="active"
@@ -65,12 +71,12 @@ export const Header = () => {
                   : "")
               }
             >
-              <img className='rounded-none medium-size-logo ' width={150} src={LogoNexus} alt='logo nexus' />
+              <img className='rounded-none' width={150} src={LogoNexus} alt='logo nexus' />
             </LinkScroll>
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex md-30 lg:ml-[-2rem] " justify="star">
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarBrand>
             <LinkScroll
               activeClass="active"
@@ -88,7 +94,7 @@ export const Header = () => {
                   : "")
               }
             >
-              <img className='rounded-none lg:ml-[-7rem]' width={280} src={LogoNexus} alt='logo nexus' />
+              <img className='rounded-none' width={150} src={LogoNexus} alt='logo nexus' />
             </LinkScroll>
           </NavbarBrand>
 
@@ -103,33 +109,33 @@ export const Header = () => {
                 setActiveLink("inicio-section");
               }}
               className={
-                "py-2 mx-1 cursor-pointer animation-hover inline-block relative" +
+                "py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
                 (activeLink === "inicio-section"
                   ? " font-semibold animation-active "
-                  : " text-black-500 a ")
+                  : " text-black-500 a")
               }
             >
-              ¿Quiénes somos?
+              {text("header.who-are-we")}
             </LinkScroll>
           </NavbarItem>
           <NavbarItem >
             <LinkScroll
               activeClass="active"
-              to="servicioss-section"
+              to="servicios-section"
               spy={true}
               smooth={true}
               duration={1000}
               onSetActive={() => {
-                setActiveLink("servicioss-section");
+                setActiveLink("servicios-section");
               }}
               className={
-                "py-2 mx-6 cursor-pointer animation-hover relative" +
-                (activeLink === "servicioss-section"
+                "py-2 mx-2 cursor-pointer animation-hover relative" +
+                (activeLink === "servicios-section"
                   ? " font-semibold animation-active "
                   : " text-black-500 a")
               }
             >
-              Servicios
+              {text("header.services")}
             </LinkScroll>
           </NavbarItem>
           <NavbarItem>
@@ -149,7 +155,7 @@ export const Header = () => {
                   : " text-black-500 a")
               }
             >
-              Equipo
+              {text("header.team")}
             </LinkScroll>
           </NavbarItem>
           <NavbarItem>
@@ -169,7 +175,7 @@ export const Header = () => {
                   : " text-black-500 a")
               }
             >
-              Historias de exito
+              Success stories
             </LinkScroll>
           </NavbarItem>
           <NavbarItem className="hidden md:flex">
@@ -193,7 +199,7 @@ export const Header = () => {
             </LinkScroll>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent className="lg:mr-[-7rem]" justify="end">
+        <NavbarContent justify="end">
           <NavbarItem>
             <Button as={LinkScroll} to="contactanos-section" spy={true}
               smooth={true}
@@ -204,13 +210,29 @@ export const Header = () => {
               }} className={"bg-primaryColor text-white font-semibold hidden md:flex" + (activeLink === "contactanos-section"
                 ? " font-semibold animation-active "
                 : "  a")} variant="flat">
-              Contáctanos
+              {text("header.contact-us")}
             </Button>
           </NavbarItem>
-        </NavbarContent >
-        <NavbarMenu >
+
+          <NavbarItem className="md:flex w-28 flex-wrap md:flex-nowrap gap-2">
+
+            <Select
+              label="Lenguage"
+              className="max-w-"
+            >
+              {idiomas.map((idioma) => (
+                <SelectItem key={idioma.value} value={idioma.value} onClick={() => i18n.changeLanguage(idioma.value)} >
+                  {idioma.label}
+                </SelectItem>
+              ))}
+            </Select>
+
+          </NavbarItem>
+
+        </NavbarContent>
+        <NavbarMenu>
           {menuItems.map(({ pathname, path }, index) => (
-            <NavbarMenuItem  key={`${pathname}-${index}`}>
+            <NavbarMenuItem key={`${pathname}-${index}`}>
               <LinkScroll
                 activeClass="active"
                 to={path}
@@ -221,10 +243,10 @@ export const Header = () => {
                   setActiveLink({ path });
                 }}
                 className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative text-lg  " +
+                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
                   (activeLink === path
                     ? " text-green-500 font-semibold animation-active "
-                    : " text-black-500 a ")
+                    : " text-black-500 a")
                 }
               >
                 {pathname}
@@ -233,10 +255,6 @@ export const Header = () => {
           ))}
         </NavbarMenu>
       </Navegation>
-
-
     </>
-
-
   );
 }

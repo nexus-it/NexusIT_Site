@@ -1,0 +1,13 @@
+{
+    "header":{
+        "who-are-we": "¿Quienes somos?",
+        "services": "Servicios",
+        "team": "Equipo",
+        "contact-us": "Contáctanos"
+    },
+    "idiomas": {
+        "spanish": "Espanish",
+        "english": "Englis"
+    }
+    
+}
