@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 
 import juan from "../assets/images/fotos_web/juan/juan.jpg";
@@ -73,6 +74,8 @@ export const Equipo = () => {
   const imagenes9 = [angelica2, angelica3, angelica];
   const [imagenIndex9, setImagenIndex9] = useState(0);
 
+  const [text, i18n] = useTranslation("global")
+
   useEffect(() => {
     const interval1 = setInterval(() => {
       setImagenIndex1(prevIndex => (prevIndex + 1) % imagenes1.length);
@@ -126,7 +129,7 @@ export const Equipo = () => {
 
     };
   }, []);
-
+ 
   return (
 
     <section id="equipo-section" className="bg-secondaryColor">
@@ -137,9 +140,9 @@ export const Equipo = () => {
 
         <div className="mx-auto text-center mb-10 lg:mb-14">
 
-          <h2 className="text-2xl font-bold text-gray-800">Este es nuestro increíble {' '}
-            <span className="text-green-500 mr-2">equipo</span>
-            <span className="text-gray-800 mr-2">de trabajo</span>
+          <h2 className="text-2xl font-bold text-gray-800">{text("team.this-is-our-amazing")}{' '}
+            <span className="text-green-500 mr-2">{text("team.team")}</span>
+            <span className="text-gray-800 mr-2">{text("team.work")}</span>
           </h2>
         </div>
 
@@ -153,6 +156,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes2[imagenIndex2]}
                   alt={`imagen adicional ${imagenIndex2 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -166,7 +170,7 @@ export const Equipo = () => {
             </div>
           </div>
 
-
+          {/* 2 Item */}
           <div className="text-center">
             <div className="relative group">
 
@@ -176,6 +180,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes9[imagenIndex9]}
                   alt={`imagen adicional ${imagenIndex9 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -185,14 +190,12 @@ export const Equipo = () => {
                 Angelica Márquez
               </h3>
               <p className="text-sm text-gray-600">
-                Directora administrativa
+                {text("team.administrative-director")}
               </p>
             </div>
           </div>
 
-          {/* 2 Item */}
-
-
+          
 
           {/* 3 Item */}
           <div className="text-center">
@@ -204,6 +207,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes3[imagenIndex3]}
                   alt={`imagen adicional ${imagenIndex3 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -212,7 +216,7 @@ export const Equipo = () => {
                 Melany Aguilar
               </h3>
               <p className="text-sm text-gray-600">
-                Asistente Administrativa
+                {text("team.administrative-assistant")}
               </p>
             </div>
           </div>
@@ -227,6 +231,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={[imagenes1[imagenIndex1]]}
                   alt={`imagen adicional ${imagenIndex1 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -235,7 +240,7 @@ export const Equipo = () => {
                 Keren Pérez
               </h3>
               <p className="text-sm text-gray-600">
-                Directora de Comunicaciones y Marketing
+                {text("team.director-of-communications-and-marketing")}
               </p>
             </div>
           </div>
@@ -250,6 +255,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes7[imagenIndex7]}
                   alt={`imagen adicional ${imagenIndex7 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -276,6 +282,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes8[imagenIndex8]}
                   alt={`imagen adicional ${imagenIndex8 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -300,6 +307,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes6[imagenIndex6]}
                   alt={`imagen adicional ${imagenIndex6 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -323,6 +331,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes5[imagenIndex5]}
                   alt={`imagen adicional ${imagenIndex5 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -350,6 +359,7 @@ export const Equipo = () => {
                   className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Agrega la clase rounded-2xl y scale-110
                   src={imagenes4[imagenIndex4]}
                   alt={`imagen adicional ${imagenIndex4 + 1}`}
+                  preload="auto"
                 />
               </div>
             </div>
@@ -359,7 +369,7 @@ export const Equipo = () => {
                 Nicoll Zambrano
               </h3>
               <p className="text-sm text-gray-600">
-                Soporte
+                {text("team.support")}
               </p>
             </div>
           </div>

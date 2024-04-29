@@ -3,11 +3,111 @@
         "who-are-we": "¿Quienes somos?",
         "services": "Servicios",
         "team": "Equipo",
-        "contact-us": "Contáctanos"
+        "success-stories": "Historias de éxito",
+        "contact-us": "Contáctanos",
+        "spanish": "Esp",
+        "english": "Ing"
     },
-    "idiomas": {
-        "spanish": "Espanish",
-        "english": "Englis"
+    "start": {
+        "we-develop-software-solutions": "Desarrollamos soluciones",
+        "tailored-to-your-needs." : "de software a la medida de tus necesidades.",
+        "contact-us": "Contáctanos",
+        "schedule-your-call-now": "Agenda tu llamada ahora",
+        "We'd-love-to-hear-from-you!": "¡Nos encantaria saber de ti!",
+        "name": "Nombre",
+        "last-name": "Apellido",
+        "company": "Empresa",
+        "send": "Enviar",
+        "complete-this-field": "Completa este campo",
+        "this-field-is-required": "Este campo es obligatorio",
+        "by-clicking-the-button-you-are-accepting-the": "Al hacer clic en el botón estás aceptando las",
+        "data-policies": "politicas de datos",
+        "please-enter-a-valid-email-address": "Por favor, ingresa una dirección de correo electrónico válida.",
+        "success": "¡Exito!",
+        "the-form-was-submitted-successfully": "El formulario se envió correctamente.",
+        "What-is-NEXUS-IT?": "¿Qué es NEXUS IT?",
+        "introduction-what-is-nexusit": "Un equipo que se dedica a desarrollar, diseñar, mantener y distribuir productos digitales. Nuestro principal objetivo es crear soluciones informáticas que satisfagan las necesidades de nuestros clientes.",
+        "what-do-we-do?": "¿Qué hacemos?",
+        "introduction-what-do-we-do?": "Creamos y ejecutamos soluciones tecnológicas para mejorar la gestión y eficiencia de las empresas. A través de nuestros programas ayudamos a hacer realidad aplicaciones web y móviles que facilitan y optimizan los procesos."
+    },
+    "services": {
+        "your-dream-is-ours-main": "Tus sueños es nuestra principal",
+        "mission": "misión",
+        "we-believe-in-excellent-work-and-dedication": "Creemos en el excelente trabajo y la dedicación",
+        "introduction_main": "Abordamos minuciosamente todos los aspectos necesarios para desarrollar productos digitales innovadores y de clase mundial, desde la formulación de estrategias hasta el diseño de productos. Aplicamos estándares de codificación excepcionales y realizamos pruebas continuas, lo que da como resultado productos de alta calidad que son fáciles de mantener.",
+        "You-manage-we-handle-the-request!": "¡Tú administras, nosotros manejamos la solicitud!",
+        "benefits": "Beneficos",
+        "of-working-with-us": "de trabajar con nosotros",
+        "specialized-experience": "Experencia Especializada",
+        "introduction-specialized-experience": "Tenemos un equipo de profesionales altamente capacitados y especializados en diversas áreas de desarrollo.",
+        "efficiency-and-compliance": "Eficiencia y Cumplimiento",
+        "introduction-efficiency-and-compliance": "Trabajamos con procesos establecidos para planificar, ejecutar y controlar proyectos de manera eficiente, cumpliendo con los plazos establecidos.",
+        "customer-support": "Soporte a Clientes",
+        "introduction-customer-support": "Garantizamos una atención de calidad y satisfacción de las necesidades de nuestros clientes, construyendo relaciones sólidas y fomentando el éxito empresarial.",
+        "get-to-know-our": "Conoce nuestros",
+        "services": "servicios",
+        "software-development": "Desarrollo de Software",
+        "introduction-software-develop": "Ofrecemos soluciones de desarrollo de software personalizadas para adaptarse a las necesidades de su organización, creando productos digitales que van desde aplicaciones hasta programas.",
+        "IT-Consulting": "Consultoría Informática",
+        "introduction-IT": "Proporcionamos orientación clave para tu empresa, centrándonos en áreas principales como Tecnologías de la Información (TI), Computación en la Nube, etc.",
+        "high-technology": "Alta Tecnología",
+        "introduction-high-technology": "Trabajamos para mantenernos a la vanguardia de la revolución tecnológica y estamos listos para compartir nuestro conocimiento con su empresa.",
+        "related-services": "Servicios Relacionados",
+        "introduction-related-services": "Nuestro equipo brinda diversos servicios de desarrollo, como pruebas de control de calidad, gestión de proyectos y más.",
+        "note-introduction": "¡Si tienes una necesidad digital, Nexus está aquí para ayudarte a resolver el problema!"
+    },
+    "team": {
+        "this-is-our-amazing": "Este es nuestro increible",
+        "team": "equipo",
+        "work": "de trabajo",
+        "administrative-director": "Directora Administrativa",
+        "administrative-assistant": "Asistente Administrativa",
+        "director-of-communications-and-marketing": "Directora de Comunicaciones y Marketing",
+        "support": "Soporte"
+    },
+    "client": {
+        "introduction": "Conoce alguna de las marcas que confían en nosotros",
+        "HID-testimony": "Está herramienta se utiliza para gestionar los diversos aspectos de la gestión de mi IPS, como testimonio podría decir que me ayuda al rendimiento en las actividades operacionales, historias clínicas, admisiones, calidad y proceso adecuado para facturación.",
+        "Sindica-testimony": "Genomax es un sofware muy fácil de manejar y acoplable a nuestro tipo de prestación de servicios, visualmente es agradable fácil de ingresar y desde cualquier dispositivo tecnológico que tenga acceso a internet, es rápido y ágil, tiene buena adaptación en la parte administrativa ya que es completo en funcionalidad y fácil llevar una trazabilidd de todos los procesos establecidos en la empresa."
+
+    },
+    "blog": {
+        "explore": "Explora",
+        "btn-explore": "Explorar",
+        "our-work": "nuestro trabajo",
+        "introduction": "Le ayudamos a idear, diseñar estrategias, iterar y lanzar sus aplicaciones web y móviles."
+    },
+    "contact-us": {
+        "schedule-your-call-now": "Agenda tu llamada ahora",
+        "We'd-love-to-hear-from-you!": "¡Nos encantaria saber de ti!",
+        "name": "Nombre",
+        "last-name": "Apellido",
+        "company": "Empresa",
+        "phone": "Télefono",
+        "tell-us-about-your-idea": "Cuéntanos acerca de tu idea",
+        "provide-a-concise-description-of-your-project": "Proporciona una descripción concisa de tu proyecto.",
+        "please-enter-a-valid-email-address": "Por favor, ingresa una dirección de correo electrónico válida.",
+        "please-enter-a-valid-phone-number": "Por favor, ingresa un número de teléfono válido.",
+        "send-form": "Enviar Formulario",
+        "complete-this-field": "Completa este campo",
+        "this-field-is-required": "Este campo es obligatorio",
+        "by-clicking-the-button-you-are-accepting-the": "Al hacer clic en el botón estás aceptando las",
+        "data-policies": "politicas de datos"
+    },
+    "footer": {
+        "description-nexus": "Somos la mejor opción para el desarrollo de tus aplicaciones.",
+        "description-nexus-contact-us": "¡Contáctanos y te brindamos la mejor solución!",
+        "who-are-we": "¿Quienes somos?",
+        "services": "Servicios",
+        "team": "Equipo",
+        "success-stories": "Historias de éxito",
+        "contacts": "Contactos",
+        "phone": "Télefono",
+        "address": "Dirección",
+        "quick-links": "Enlaces Rápidos",
+        "description-social": "¡Conéctate con nosotros en las redes sociales para estar al tanto de todo!",
+        "nexus-it": "Nexus Information Technologies",
+        "all-rights-reserved": "Todos los derechos reservados."
     }
     
 }

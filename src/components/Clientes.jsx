@@ -24,22 +24,25 @@ import Logo12 from "../assets/logos/logo-12.png";
 import Logo13 from "../assets/logos/logo-13.png";
 import { useMediaQuery } from 'react-responsive';
 
+import { useTranslation } from "react-i18next";
+
 
 export const Clientes = () => {
   
-
+  
+  const [text, i18n] = useTranslation("global")
   const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8, Logo9, Logo10, Logo11, Logo12, Logo13];
   const testimonios = [TestimonialImage, TestimonialImage1, TestimonialImage2];
 
   const testimoniosArray = [
     {
-      testimonio: "Está herramienta se utiliza para gestionar los diversos aspectos de la gestión de mi IPS, como testimonio podría decir que me ayuda al rendimiento en las actividades operacionales, historias clínicas, admisiones, calidad y proceso adecuado para facturación.",
+      testimonio: text("client.HID-testimony"),
       nombre: "Jailin Contreras",
       empresa: "HID",
       imagen: TestimonialImage1,
     },
     {
-      testimonio: "Genomax es un sofware muy fácil de manejar y acoplable a nuestro tipo de prestación de servicios, visualmente es agradable fácil de ingresar y desde cualquier dispositivo tecnológico que tenga acceso a internet, es rápido y ágil, tiene buena adaptación en la parte administrativa ya que es completo en funcionalidad y fácil llevar una trazabilidd de todos los procesos establecidos en la empresa.",
+      testimonio: text("client.Sindica-testimony"),
       nombre: "Jailin Contreras",
       empresa: "Sadinca",
       imagen: TestimonialImage2,
@@ -134,7 +137,7 @@ useEffect(() => {
       {/* Partners */}
       <div className="container mx-auto w-full px-2 pt-16">
         <h2 className="text-center text-4xl font-bold text-gray-800 mb-8">
-          Conoce alguna de las marcas que confían en nosotros
+          {text("client.introduction")}
         </h2>
 
         {/* Company*/}
@@ -184,7 +187,7 @@ useEffect(() => {
                         alt={`imagen testimonial${index}`} />
                     </div>
                     <blockquote className="lg:text-lg text-sm mb-4 text-white ">{item.testimonio}</blockquote>
-                    <cite class="block font-bold text-base md:text-lg lg:text-xl xl:text-2xl leading-normal md:leading-relaxed lg:leading-loose text-primaryColor">{item.nombre}</cite>
+                    <cite className="block font-bold text-base md:text-lg lg:text-xl xl:text-2xl leading-normal md:leading-relaxed lg:leading-loose text-primaryColor">{item.nombre}</cite>
                     <div className="text-white">
                       <span>{item.cargo}</span> <a className="text-primaryColor font-semibold" href="#0">{item.empresa}</a>
                     </div>

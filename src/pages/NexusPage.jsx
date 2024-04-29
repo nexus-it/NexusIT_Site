@@ -2,6 +2,7 @@ import {
     Servicios,
     Inicio,
     Equipo,
+    Team,
     Clientes,
     Contactanos,
     Blog
@@ -13,7 +14,7 @@ export const NexusPage = () => {
         <>
             <Inicio />
             <Servicios />
-            <Equipo />
+            <Team />
             <Clientes />
             <Blog />
             <Contactanos />

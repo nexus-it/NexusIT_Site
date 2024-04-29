@@ -5,6 +5,8 @@ import LogoNexus from "../assets/images/logo-footer.png";
 import Instagram from "../assets/iconos/instagram.svg";
 import Whatsapp from "../assets/iconos/whatsapp.svg";
 import Linkedin from "../assets/iconos/linkedin.svg";
+import { useTranslation } from "react-i18next";
+
 
 // Obtén la fecha actual
 const currentDate = new Date();
@@ -13,6 +15,8 @@ const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
 export const Footer = () => {
+  
+  const [text, i18n] = useTranslation("global")
 
   return (
 
@@ -36,8 +40,9 @@ export const Footer = () => {
 
             <div className="mt-6 lg:max-w-sm">
               <p className="text-sm text-white">
-                Somos la mejor opción para el desarrollo de tus aplicaciones.
-                ¡Contáctanos y te brindaremos la mejor solución!
+                {text("footer.description-nexus")}
+                
+                {text("footer.description-nexus-contact-us")}
               </p>
             </div>
           </div>
@@ -46,7 +51,7 @@ export const Footer = () => {
           {/* Column Start */}
           <div className="space-y-2 text-sm">
             <p className="text-base font-bold tracking-wide text-white pb-2">
-              Quick Links
+              {text("footer.quick-links")}
             </p>
 
             <div className="flex">
@@ -57,7 +62,7 @@ export const Footer = () => {
                 smooth={true}
                 duration={1000}
                 className={"hover:text-green-500 text-white cursor-pointer font-semibold"} >
-                ¿Quiénes somos?
+                {text("footer.who-are-we")}
               </LinkScroll>
             </div>
 
@@ -69,7 +74,7 @@ export const Footer = () => {
                 smooth={true}
                 duration={1000}
                 className={"hover:text-green-500 text-white cursor-pointer font-semibold"} >
-                Servicios
+                  {text("footer.services")}
               </LinkScroll>
             </div>
 
@@ -81,7 +86,7 @@ export const Footer = () => {
                 smooth={true}
                 duration={1000}
                 className={"hover:text-green-500 text-white cursor-pointer font-semibold"} >
-                Equipo
+                  {text("footer.team")}
               </LinkScroll>
             </div>
 
@@ -93,7 +98,7 @@ export const Footer = () => {
                 smooth={true}
                 duration={1000}
                 className={"hover:text-green-500 text-white cursor-pointer font-semibold"} >
-                Historias de éxito
+                  {text("footer.success-stories")}
               </LinkScroll>
             </div>
 
@@ -114,11 +119,11 @@ export const Footer = () => {
           {/* Column Start */}
           <div className="space-y-2 text-sm">
             <p className="text-base font-bold tracking-wide text-white pb-2">
-              Contactos
+              {text("footer.contacts")}
             </p>
 
             <div className="flex">
-              <p className="mr-1 text-white">Teléfono:</p>
+              <p className="mr-1 text-white">{text("footer.phone")}:</p>
               <a
                 href="tel:+57 3017522772"
                 aria-label="Our phone"
@@ -140,7 +145,7 @@ export const Footer = () => {
             </div>
 
             <div className="">
-              <p className="mr-1 text-white">Dirección:</p>
+              <p className="mr-1 text-white">{text("footer.address")}:</p>
               <a
                 href="https://maps.app.goo.gl/ooyV38N2pCDdre8a9"
                 target="_blank"
@@ -148,7 +153,7 @@ export const Footer = () => {
                 aria-label="Our address"
                 title="Our address"
                 className="text-white hover:text-primaryColor" >
-                Torre Atlántica Centro Empresarial, Piso 20, Cra. 53 #80 - 198, Nte. Centro Historico, Barranquilla, Atlántico.
+                LYD House, Cra. 49c #75 - 74, Nte. Centro Historico, Barranquilla, Atlántico.
               </a>
             </div>
           </div>
@@ -179,7 +184,7 @@ export const Footer = () => {
             </div>
             
             <p className="mt-4 text-sm text-white ">
-              ¡Conéctate con nosotros en las redes sociales para estar al tanto de todo! 🚀
+              {text("footer.description-social")} 🚀
             </p>
           </div>
           {/* Column End */}
@@ -187,7 +192,7 @@ export const Footer = () => {
         
         <div className="flex flex-col-reverse justify-center pt-5 pb-10 lg:flex-row">
           <p className="text-sm text-white">
-            © Nexus Information Technologies {currentYear}, Todos los derechos reservados.
+            © {text("footer.nexus-it")} {currentYear}, {text("footer.all-rights-reserved")}
           </p>
         </div>
       </div>

@@ -7,3 +7,4 @@ export * from "./Inicio";
 export * from "./Portafolio";
 export * from "./Servicios";
 export * from "./Blog";
+export * from "./Team";

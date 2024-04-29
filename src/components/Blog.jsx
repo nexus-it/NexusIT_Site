@@ -1,7 +1,11 @@
 import Image4 from "../assets/images/imagen-4.svg";
 import { Button } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
 
 export const Blog = () => {
+
+    const [text, i18n] = useTranslation("global")
+
     return (
         <section id="blog-section">
             <div className="container mx-auto px-4 pb-12">
@@ -9,13 +13,13 @@ export const Blog = () => {
                     <div className="lg:col-span-3">
 
                         <h2 className="block text-4xl font-bold text-gray-800">
-                            <span className="text-green-500">Explora</span> nuestro trabajo
+                            <span className="text-green-500">{text("blog.explore")}</span> {text("blog.our-work")}
                         </h2>
-                        <p className="mt-3 text-lg text-gray-800">Te ayudamos a idear, diseñar estrategias, iterar y lanzar sus aplicaciones web y móviles.</p>
+                        <p className="mt-3 text-lg text-gray-800">{text("blog.introduction")}</p>
 
                         <div className="my-4">
 
-                            <Button size="lg" className="bg-thirdColor text-secondaryColor font-semibold">Explorar</Button>
+                            <Button size="lg" className="bg-thirdColor text-secondaryColor font-semibold">{text("blog.btn-explore")}</Button>
                         </div>
                     </div>
 
