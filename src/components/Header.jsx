@@ -253,14 +253,15 @@ export const Header = () => {
 
             <Select
               label="Lenguage"
-              className="max-w-md md:flex w-32"
+              className="max-w-xs md:flex w-28"
             >
               {lenguages.map((lenguage) => (
-                <SelectItem key={lenguage.value} value={lenguage.value} onClick={() => i18n.changeLanguage(lenguage.value)} >
-                  <div className="flex items-center">
-                    <span>{lenguage.label}</span>
-                    <span className="ml-2">{lenguage.icon}</span>
-                  </div>
+                <SelectItem
+                  startContent={lenguage.icon} 
+                  key={lenguage.value} 
+                  value={lenguage.value} 
+                  onClick={() => i18n.changeLanguage(lenguage.value)} >
+                    {lenguage.label}
                 </SelectItem>
               ))}
             </Select>

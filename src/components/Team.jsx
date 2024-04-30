@@ -37,7 +37,10 @@ const imagePaths = {
   nicolle: "https://cdn.genomax.app/images/fotos_web/gafas/gafas.jpg",
   nicolle2: "https://cdn.genomax.app/images/fotos_web/gafas/gafas2.jpg",
   nicolle3: "https://cdn.genomax.app/images/fotos_web/gafas/gafas3.jpg",
-  
+  //
+  david: "https://cdn.genomax.app/images/fotos_web/david/davidM.jpg",
+  david2: "https://cdn.genomax.app/images/fotos_web/david/davidM2.jpg", 
+  david3: "https://cdn.genomax.app/images/fotos_web/david/davidM3.jpg", 
 
 };
 
@@ -80,6 +83,10 @@ export const Team = () => {
     nicolle: false,
     nicolle2: false,
     nicolle3: false,
+    //
+    david: false,
+    david2: false,
+    david3: false,
   });
 
   const teamMembers = [
@@ -137,7 +144,16 @@ export const Team = () => {
       image: "nicolle",
       additionalImages: ["nicolle2", "nicolle3"],
     },
+    {
+      name: "David Márquez",
+      title: text("team.commercial-manager"),
+      image: "david",
+      additionalImages: ["david2", "david3"],
+    },
   ];
+
+  const [currentImage, setCurrentImage] = useState({});
+  const [currentAdditionalImageIndex, setCurrentAdditionalImageIndex] = useState(0);
 
   useEffect(() => {
     const preloadImages = async () => {
@@ -155,19 +171,30 @@ export const Team = () => {
     preloadImages();
   }, []);
 
-  const handleMouseEnter = (member) => {
-    setCurrentImage(member);
-  };
-
   const handleMouseLeave = () => {
     setCurrentImage({});
   };
 
 
+  const handleMouseEnter = (member) => {
+    setCurrentImage(member);
+  
+    let intervalId = setInterval(() => {
+      setCurrentAdditionalImageIndex((prevIndex) => (prevIndex + 1) % member.additionalImages.length);
+    }, 2000);
+  
+    setTimeout(() => {
+      clearInterval(intervalId);
+    }, 2000);
+  
+    return () => clearInterval(intervalId);
+  };
+
+
   return (
     <section id="equipo-section" className="bg-secondaryColor">
-      <div className="container mx-auto px-12 py-12">
-        <div className="mx-auto text-center mb-10 lg:mb-14">
+      <div className='container mx-auto px-12 py-12'>
+        <div className='mx-auto text-center mb-10 lg:mb-14'> 
           <h2 className="text-2xl font-bold text-gray-800">
             {text("team.this-is-our-amazing")}{' '}
             <span className="text-green-500 mr-2">{text("team.team")}</span>
@@ -176,37 +203,45 @@ export const Team = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-
-            {teamMembers.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="relative group">
-                  <img
-                    className="rounded-2xl transition duration-300 ease-in-out hover:opacity-75" // Added transition classes
-                    src={loadedImages[member.image] ? imagePaths[member.image] : ''}
-                    alt="imagen perfil"
-                  />
-                  <div className="hidden absolute inset-0 transition-opacity duration-300 ease-in-out items-center justify-center group-hover:flex">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="text-center">
+              <div className="relative group">
+                <img
+                  className="rounded-2xl transition duration-300 ease-in-out hover:opacity-75"
+                  src={loadedImages[member.image] ? imagePaths[member.image] : ''}
+                  alt="imagen perfil"
+                  onMouseEnter={() => handleMouseEnter(member)}
+                  onMouseLeave={handleMouseLeave}
+                />
+                <div className="hidden absolute inset-0 transition-opacity duration-300 ease-in-out items-center justify-center group-hover:flex">
                   {member.additionalImages.map((additionalImage, idx) => (
                     <img
                       key={idx}
-                      className="w-full h-full object-cover additional-image rounded-2xl scale-110" // Add classes
+                      id={`additional-image-${idx}`}
+                      className={
+                        currentAdditionalImageIndex === idx
+                          ? "w-full h-full object-cover additional-image rounded-2xl scale-110"
+                          : "hidden"
+                      }
                       src={loadedImages[additionalImage] ? imagePaths[additionalImage] : ''}
                       alt={`imagen adicional ${idx + 1}`}
                     />
                   ))}
-                  </div>
-                </div>
-                <div className="mt-4 sm:mt-4">
-                  <h3 className="mt-6 font-semibold text-gray-800">{member.name}</h3>
-                  <p className="text-sm text-gray-600">{member.title}</p>
                 </div>
               </div>
-            ))}    
-
-
+              <div className="mt-4 sm:mt-4">
+                    <h3 className="mt-6 font-semibold text-gray-800">{member.name}</h3>
+                    <p className="text-sm text-gray-600">{member.title}</p>
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
-}
+};
+
+export default Team;
+
 

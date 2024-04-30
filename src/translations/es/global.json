@@ -21,7 +21,7 @@
         "complete-this-field": "Completa este campo",
         "this-field-is-required": "Este campo es obligatorio",
         "by-clicking-the-button-you-are-accepting-the": "Al hacer clic en el botón estás aceptando las",
-        "data-policies": "politicas de datos",
+        "data-policies": "políticas de datos",
         "please-enter-a-valid-email-address": "Por favor, ingresa una dirección de correo electrónico válida.",
         "success": "¡Exito!",
         "the-form-was-submitted-successfully": "El formulario se envió correctamente.",
@@ -63,7 +63,8 @@
         "administrative-director": "Directora Administrativa",
         "administrative-assistant": "Asistente Administrativa",
         "director-of-communications-and-marketing": "Directora de Comunicaciones y Marketing",
-        "support": "Soporte"
+        "support": "Soporte",
+        "commercial-manager": "Gerente Comercial"
     },
     "client": {
         "introduction": "Conoce alguna de las marcas que confían en nosotros",
@@ -92,7 +93,7 @@
         "complete-this-field": "Completa este campo",
         "this-field-is-required": "Este campo es obligatorio",
         "by-clicking-the-button-you-are-accepting-the": "Al hacer clic en el botón estás aceptando las",
-        "data-policies": "politicas de datos"
+        "data-policies": "políticas de datos"
     },
     "footer": {
         "description-nexus": "Somos la mejor opción para el desarrollo de tus aplicaciones.",

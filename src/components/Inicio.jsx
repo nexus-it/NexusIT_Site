@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import Background from "../assets/images/background.jpg";
 import { Input, Button } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
+import terminos_condicones from "../assets/pdfs/tratamiento_de_datos.pdf"
 
 export const Inicio = () => {
 
@@ -62,22 +63,6 @@ export const Inicio = () => {
     enviarCorreo();
   };
 
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('Timer finished');
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [formSubmitted]);
-
-
-  const handleButtonClick = () => {
-    enviarCorreo();
-  };
-
   return (
     <>
       <section id="inicio-section" className="bg-primaryColor">
@@ -106,7 +91,7 @@ export const Inicio = () => {
 
 
             <div className="lg:col-span-1 mt-5">
-              <img className="w-full max-w-x1 lg:max-w-none mx-auto " src={Image1} alt="Image Description" />
+              <img className="w-full max-w-x1 lg:max-w-none mx-auto " data-aos-duration="2000" data-aos="flip-up" src={Image1} alt="Image Description" />
             </div>
 
             <div className="relative lg:col-span-1 mt-5">
@@ -174,7 +159,7 @@ export const Inicio = () => {
                     <label htmlFor="accept-terms-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                       {text("start.by-clicking-the-button-you-are-accepting-the")}{" "}
                       <a
-                        href="pdfs/terminos_condiciones.pdf"
+                        href={terminos_condicones}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-500 underline"

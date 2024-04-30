@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input, Button, Textarea } from "@nextui-org/react";
 import { useTranslation } from 'react-i18next';
+import terminos_condicones from "../assets/pdfs/tratamiento_de_datos.pdf"
 
 export const Contactanos = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -157,7 +158,7 @@ export const Contactanos = () => {
                 type="checkbox" 
                 {...register("acceptTerms", { required: true })} 
                 className="w-4 h-4 col-span-full max-w-md text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-              <label htmlFor="accept-terms-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{text("contact-us.by-clicking-the-button-you-are-accepting-the")} <a href="pdfs/terminos_condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">{text("contact-us.data-policies")}</a></label>
+              <label htmlFor="accept-terms-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{text("contact-us.by-clicking-the-button-you-are-accepting-the")} <a href={terminos_condicones} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">{text("contact-us.data-policies")}</a></label>
             </div>
             <Button type="submit" size="lg" radius="full" className="font-semibold bg-thirdColor mt-5 text-secondaryColor mb-4 col-span-full md:w-56 lg:w-56">{text("contact-us.send-form")}</Button>
           </div>
