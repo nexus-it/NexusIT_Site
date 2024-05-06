@@ -1,72 +1,74 @@
 import Image1 from "../assets/images/imagen-1.svg";
 import Image2 from "../assets/images/imagen-2.svg";
 import { Link as LinkScroll } from "react-scroll";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Background from "../assets/images/background.jpg";
 import { Input, Button } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
-import terminos_condicones from "../assets/pdfs/tratamiento_de_datos.pdf"
+import terminos_condiciones from "../assets/pdfs/tratamiento_de_datos.pdf";
+import axios from 'axios';
 
 export const Inicio = () => {
 
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
   const [text, i18n] = useTranslation("global");
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset 
   } = useForm();
 
-  const [activeLink, setActiveLink] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
-    lastName: "",
+    last_name: "",
     company: "",
-    email: ""
+    email: "",
+    policies: true
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    const val = type === 'checkbox' ? checked : value;
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: val
     }));
   };
 
-  const enviarCorreo = async () => {
-    const formdata = new FormData();
-    formdata.append("name", formData.name);
-    formdata.append("lastName", formData.lastName);
-    formdata.append("company", formData.company);
-    formdata.append("email", formData.email);
-
-    const requestOptions = {
-      method: 'POST',
-      body: formdata,
-      redirect: 'follow'
-    };
-
+  const sendEmail = async () => {
     try {
-      const response = await fetch("https://nexus-it.co/api/enviarCorreo", requestOptions);
-      const result = await response.text();
-      console.log(result);
+      const response = await axios.post("http://127.0.0.1:8000/api/post/requests", formData);
+      console.log(response.data);
       // Cambiar el estado a true cuando el formulario se envía exitosamente
       setFormSubmitted(true);
+      // Limpiar los campos del formulario después de enviar
+      setFormData({
+        name: "",
+        last_name: "",
+        company: "",
+        email: "",
+        policies: ""
+      });
+      reset();
     } catch (error) {
-      console.log('Error:', error);
+      console.error('Error:', error);
     }
   };
+  
 
   const onSubmit = async () => {
-    enviarCorreo();
+    sendEmail();
   };
 
   return (
     <>
       <section id="inicio-section" className="bg-primaryColor">
-        
+
         <div className="container mx-auto px-4 py-12 sm:py-16 lg:py-20 xl:py-24">
 
           <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-10 xl:gap-x-12 lg:items-center" >
@@ -74,18 +76,18 @@ export const Inicio = () => {
 
 
             <div className="mt-5 sm:ml-8 lg:mt-0">
-              <h2 className="text-2xl lg:text-4xl font-bold text-primaryColor mb-4"> { text("start.we-develop-software-solutions") } <span className="font-normal text-white"> { text("start.tailored-to-your-needs.") } </span></h2>
-              <Button 
-                as={LinkScroll} 
-                to="contactanos-section" 
-                spy={true} 
-                smooth={true} 
-                duration={1000} 
-                aria-label="ir a formulario de agendar llamada" 
-                onSetActive={() => setActiveLink("contactanos-section")} 
-                size="lg" 
-                className="bg-thirdColor text-secondaryColor font-semibold transition delay-150 duration-300 ease-in-out" 
-                variant="flat"> { text("start.contact-us")} </Button>
+              <h2 className="text-2xl lg:text-4xl font-bold text-primaryColor mb-4"> {text("start.we-develop-software-solutions")} <span className="font-normal text-white"> {text("start.tailored-to-your-needs.")} </span></h2>
+              <Button
+                as={LinkScroll}
+                to="contactanos-section"
+                spy={true}
+                smooth={true}
+                duration={1000}
+                aria-label="ir a formulario de agendar llamada"
+                onSetActive={() => setActiveLink("contactanos-section")}
+                size="lg"
+                className="bg-thirdColor text-secondaryColor font-semibold transition delay-150 duration-300 ease-in-out"
+                variant="flat"> {text("start.contact-us")} </Button>
             </div>
 
 
@@ -100,7 +102,7 @@ export const Inicio = () => {
                 <p className="my-2 text-lg lg:text-2xl text-secondaryColor"> {text("start.We'd-love-to-hear-from-you!")} </p>
 
 
-                <form action="enviar_correo.php" method="post" onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="grid gap-2 lg:gap-4">
                     <Input
                       {...register("name", { required: true })}
@@ -110,20 +112,18 @@ export const Inicio = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      isRequired
-                      isInvalid={errors.name && true }
+                      isInvalid={errors.name && true}
                       errorMessage={errors.name && text("start.this-field-is-required")} />
                     <Input
-                      {...register("lastName", { required: true })}
+                      {...register("last_name", { required: true })}
                       variant="underlined"
                       type="text"
                       label={text("start.last-name")}
-                      name="lastName"
-                      value={formData.lastName}
+                      name="last_name"
+                      value={formData.last_name}
                       onChange={handleChange}
-                      isRequired
-                      isInvalid={errors.lastName && true}
-                      errorMessage={errors.lastName && text("start.this-field-is-required")} />
+                      isInvalid={errors.last_name && true}
+                      errorMessage={errors.last_name && text("start.this-field-is-required")} />
                     <Input
                       {...register("company", { required: false })}
                       variant="underlined"
@@ -145,21 +145,22 @@ export const Inicio = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      isRequired
                       isInvalid={errors.email && true}
-                      errorMessage={errors.email && text("start.please-enter-a-valid-email-address") } />
+                      errorMessage={errors.email && text("start.please-enter-a-valid-email-address")} />
                   </div>
                   <div className="flex mt-4 lg:mt-5 items-center mb-2 lg:mb-4">
                     <input
-                      id="accept-terms-checkbox"
-                      type="checkbox"
                       {...register("acceptTerms", { required: true })}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      id="accept-terms-checkbox"
+                      type="checkbox"
+                      value={formData.policies}
+                      onChange={handleChange}
                     />
                     <label htmlFor="accept-terms-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                       {text("start.by-clicking-the-button-you-are-accepting-the")}{" "}
                       <a
-                        href={terminos_condicones}
+                        href={terminos_condiciones}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-500 underline"
@@ -175,9 +176,9 @@ export const Inicio = () => {
 
               </div>
             </div>
-            
+
           </div>
-          
+
           {formSubmitted && (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
               <strong className="font-bold"> {text("start.success")} </strong>
@@ -227,3 +228,6 @@ export const Inicio = () => {
     </>
   );
 };
+
+
+export default Inicio;
