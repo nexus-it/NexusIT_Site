@@ -262,6 +262,7 @@ export const Header = () => {
 
           <NavbarItem>
             <Select
+              aria-label="Selecciona un idioma"
               labelPlacement="outside"      
               className="max-w-xs w-32"
               startContent={selectedLanguage.icon} 
@@ -272,7 +273,7 @@ export const Header = () => {
                   startContent={language.icon} 
                   key={language.value} 
                   value={language.value} 
-                  onSelect={selectedLanguage.value === language.value}
+                  onSelect={() => handleLanguageChange(language)} 
                   onClick={() => handleLanguageChange(language)} >
                     {language.label}
                 </SelectItem>
