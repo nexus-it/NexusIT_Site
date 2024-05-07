@@ -33,8 +33,9 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollActive, setScrollActive] = useState(false);
   const [text, i18n] = useTranslation("global");
+  
 
-  const lenguages = [
+  const languages = [
     { 
       value: "en", 
       label: text("header.english"),
@@ -72,6 +73,17 @@ export const Header = () => {
       )
     },
   ];
+
+    // Detectar el idioma del navegador y establecerlo como el idioma seleccionado
+    const browserLanguage = navigator.language.split("-")[0];
+    const [selectedLanguage, setSelectedLanguage] = useState(
+      languages.find((lang) => lang.value === browserLanguage) || languages[0]
+    );
+  
+    const handleLanguageChange = (language) => {
+      setSelectedLanguage(language);
+      i18n.changeLanguage(language.value); 
+    };
 
 
   useEffect(() => {
@@ -249,22 +261,24 @@ export const Header = () => {
           </NavbarItem>
 
           <NavbarItem>
-
             <Select
-              label="Lenguage"
-              className="max-w-xs md:flex w-32"
-            >
-              {lenguages.map((lenguage) => (
+              labelPlacement="outside"      
+              className="max-w-xs w-32"
+              startContent={selectedLanguage.icon} 
+              placeholder={selectedLanguage.label}
+              >
+              {languages.map((language) => (
                 <SelectItem
-                  startContent={lenguage.icon} 
-                  key={lenguage.value} 
-                  value={lenguage.value} 
-                  onClick={() => i18n.changeLanguage(lenguage.value)} >
-                    {lenguage.label}
+                  startContent={language.icon} 
+                  key={language.value} 
+                  value={language.value} 
+                  onSelect={selectedLanguage.value === language.value}
+                  onClick={() => handleLanguageChange(language)} >
+                    {language.label}
                 </SelectItem>
               ))}
             </Select>
-
+              
           </NavbarItem>
 
         </NavbarContent>
